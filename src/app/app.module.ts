@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // AngularFire
-import {AngularFire, AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 
 // Environment variables
 import { environment } from '../environments/environment';
