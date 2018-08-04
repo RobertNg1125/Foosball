@@ -1,0 +1,21 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  .app-title {
+    max-width: 5em;
+    margin-bottom: 1em;
+  }
+
+  ul.btns-login {
+    li {
+      margin-bottom: 1rem;
+      .btn {
+        width: 12em;
+      }
+    }
+  }
+}

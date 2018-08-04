@@ -1,0 +1,19 @@
+$user--image--height: 40px;
+.user {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  .user--image {
+    height: $user--image--height;
+    width: $user--image--height;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .user--info {
+    padding-left: 1rem;
+    font-size: 1.1rem;
+    color: white;
+  }
+}

@@ -6,4 +6,9 @@ $headings-font-family: 'Anton', sans-serif;
 
 $brand-primary: #0217C0;
 
+$theme-colors: (
+  'primary': $brand-primary
+);
 
+// Navbar
+$navbar-default-link-color: white;

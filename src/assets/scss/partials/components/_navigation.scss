@@ -1,0 +1,90 @@
+$nav-width: 16em;
+
+.app-title {
+  color: $brand-primary;
+  text-transform: uppercase;
+  font-family: $headings-font-family;
+  font-size: 2.5rem;
+  line-height: 2.7rem;
+}
+
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 2em;
+}
+
+.nav-wrapper {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+
+  .nav-inner {
+    width: $nav-width;
+    background: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 1rem rgba(0,0,0,.25);
+  }
+}
+
+body.js-nav-open {
+  .nav-wrapper {
+    left: 0;
+  }
+}
+
+.navbar-toggler {
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+  .bar {
+    height: 3px;
+    width: 1.8rem;
+    display: block;
+    background-color: black;
+    margin-bottom: 0.4rem;
+    transition: all 0.3s ease-in-out;
+
+    &:first-child {
+
+    }
+    &:last-child {
+      margin-bottom: 0;
+      width: 1rem;
+    }
+  }
+}
+
+body.js-nav-open {
+  .navbar-toggler {
+    .bar:last-child {
+      margin-left: 0.8rem;
+    }
+  }
+}
+
+.nav-inner {
+  padding-top: 2rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: white !important;
+}
+
+ul.navbar-nav {
+  li {
+    padding: 0 1rem;
+    border-bottom: 1px solid #333;
+  }
+}
