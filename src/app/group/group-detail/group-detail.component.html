@@ -1,0 +1,11 @@
+<div class="group-header">
+  <h3>
+    <span>{{ group?.name }}</span>
+    <a routerLink="/group/{{ groupId }}/player/add"
+       class="btn btn-secondary"><i class="fa fa-user-plus" aria-hidden="true"></i>
+    </a>
+  </h3>
+  <ul class="list-unstyled metadata">
+    <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ group?.created | date }}</li>
+  </ul>
+</div>

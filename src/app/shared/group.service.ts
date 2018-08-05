@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 // Angularfire
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+
+import { Group } from './group.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,11 @@ export class GroupService {
 
   /**
    * Add new Group
+   *
+   * @param string name
+   *    group name
+   * @param string ownerId
+   *    current user UID
    */
   addGroup(name: string, ownerId: string) {
     const newGroup = this.firebase.list('/group')
@@ -27,4 +35,15 @@ export class GroupService {
 
     return newGroup;
   }
+
+  /**
+   * Get group by Id
+   *
+   * @param string groupId
+   *    group ID
+   */
+  loadGroup(groupId: string): Observable<Group> {
+    return this.firebase.object('/group/' + groupId).valueChanges() as Observable<Group>;
+  }
+
 }

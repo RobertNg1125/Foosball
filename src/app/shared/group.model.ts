@@ -1,3 +1,5 @@
 export interface Group {
-  name: string
+  name: string;
+  created: number;
+  ownerId: string;
 }

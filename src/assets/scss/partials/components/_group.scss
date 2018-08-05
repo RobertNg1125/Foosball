@@ -1,0 +1,14 @@
+.group-header {
+  h3 {
+    display: flex;
+    justify-content: space-between;
+  }
+  ul.metadata {
+    li {
+      font-size: 0.9em;
+      i {
+        margin-right: 0.5em;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@mixin button-circle() {
+  border: 1px solid $brand-primary;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-content: center;
+}
+
+.btn-circle {
+  @include button-circle();
+}
+
