@@ -1,0 +1,18 @@
+<div *ngFor="let group of groups" class="group-teaser">
+  <div class="name">
+    <a routerLink='/group/{{ group.key }}'>
+      <b>{{ group.name }}</b>
+    </a>
+    <div class="small">{{ group.created | date }}</div>
+  </div>
+  <div class="actions">
+    <a (click)="toggleJoiningGroup(group.key)">
+      <i class="fa fa-star-o" aria-hidden="true"
+         *ngIf="userGroupIds.indexOf(group.key) < 0; else notWatching"></i>
+    </a>
+  </div>
+</div>
+
+<ng-template #notWatching>
+  <i class="fa fa-star" aria-hidden="true"></i>
+</ng-template>

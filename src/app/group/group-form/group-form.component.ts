@@ -37,13 +37,10 @@ export class GroupFormComponent implements OnInit {
    * Add new group, called on submit form
    */
   addGroup() {
-   this.groupService.addGroup(
+   const newGroup = this.groupService.addGroup(
      this.name,
      this.currentUser.uid
    );
-   //   .then(
-   //   group => this.router.navigate(['/group/' + group.key])
-   // )
+   this.router.navigate(['/group/' + newGroup.key]);
   }
-
 }

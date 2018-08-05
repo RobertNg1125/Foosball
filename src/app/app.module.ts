@@ -14,13 +14,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { GroupFormComponent } from './group/group-form/group-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GroupDetailComponent } from './group/group-detail/group-detail.component';
+import { GroupListComponent } from './group/group-list/group-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     GroupFormComponent,
-    GroupDetailComponent
+    GroupDetailComponent,
+    GroupListComponent
   ],
   imports: [
     BrowserModule,

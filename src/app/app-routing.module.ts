@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 // Components
 import { GroupFormComponent } from './group/group-form/group-form.component';
 import { GroupDetailComponent } from './group/group-detail/group-detail.component';
+import { GroupListComponent } from './group/group-list/group-list.component';
 
 // Routes
 const routes: Routes = [
-  { path: '', redirectTo: '/group/add', pathMatch: 'full'},
+  { path: '', redirectTo: '/group', pathMatch: 'full'},
+  { path: 'group', component: GroupListComponent },
   { path: 'group/add', component: GroupFormComponent },
   { path: 'group/:groupId', component: GroupDetailComponent },
 ]
