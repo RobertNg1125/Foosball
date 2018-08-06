@@ -20,4 +20,12 @@ export class UserService {
     this.firebase.object('/user/' + user.uid).set(user);
   }
 
+  /**
+   * Load user by UID
+   *
+   * @param userUid
+   */
+  loadUser(userUid: string) {
+    return this.firebase.object('/user/' + userUid).valueChanges();
+  }
 }
