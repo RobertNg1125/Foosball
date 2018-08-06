@@ -70,7 +70,7 @@ export class GroupService {
    * @param string userUid
    */
   toggleJoiningGroup(groupId: string, userUid: string) {
-    const list = this.firebase.list('/user_groups/' + userUid,
+    this.firebase.list('/user_groups/' + userUid,
       ref => ref.orderByValue().equalTo(groupId)
     ).valueChanges().pipe(take(1))
       .subscribe(data => {

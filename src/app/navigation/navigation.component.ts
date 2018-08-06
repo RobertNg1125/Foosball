@@ -34,7 +34,7 @@ export class NavigationComponent implements OnInit {
   /**
    * Sign out the current user
    */
-  logOUt(): void {
+  logOut(): void {
     this.afAuth.auth.signOut();
   }
 

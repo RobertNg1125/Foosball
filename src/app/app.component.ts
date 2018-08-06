@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase';
 
+// User
+import { UserService } from './shared/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,17 +14,31 @@ import { auth } from 'firebase';
   providers: [AngularFireAuth]
 })
 export class AppComponent {
-  title = 'app';
 
   constructor(
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private userService: UserService
   ) {}
 
   loginWithGoogle(): void {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
+    const provider = new auth.GoogleAuthProvider();
+    this.socialLogIn(provider);
   }
 
-  logOut(): void {
-    this.afAuth.auth.signOut()
+  private socialLogIn(provider) {
+    this.afAuth.auth.signInWithPopup(provider)
+      .then(credential => {
+        const userInfo = {
+          uid: credential.user.uid,
+          displayName: credential.user.displayName,
+          email: credential.user.email,
+          lastLoggedIn: Date.now()
+        };
+
+        this.userService.addUser(userInfo);
+
+      })
+      .catch(err => console.log(err));
   }
+
 }
