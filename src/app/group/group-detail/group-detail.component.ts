@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
+
+// AngularFire
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import { Group } from '../../shared/group.model';
 import { GroupService } from '../../shared/group.service';
 
@@ -9,8 +13,6 @@ import { UserService } from '../../shared/user.service';
 
 import { Player } from '../../shared/player.model';
 import { PlayerService } from '../../shared/player.service';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-group-detail',
@@ -22,12 +24,14 @@ export class GroupDetailComponent implements OnInit {
   group: Group;
   owner: User;
   players: Player[] = new Array();
+  isGroupOwner: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private groupService: GroupService,
     private userService: UserService,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    public afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {

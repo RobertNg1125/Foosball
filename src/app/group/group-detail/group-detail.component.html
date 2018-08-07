@@ -2,6 +2,7 @@
   <h3>
     <span>{{ group?.name }}</span>
     <a routerLink="/group/{{ groupId }}/player/add"
+       *ngIf="group?.ownerId === afAuth.auth.currentUser.uid"
        class="btn btn-secondary"><i class="fa fa-user-plus" aria-hidden="true"></i>
     </a>
   </h3>
@@ -12,7 +13,6 @@
 </div>
 
 <div class="group-body">
-
   <div class="players">
     <div class="player" *ngFor="let player of players">
       <a routerLink="/player">
