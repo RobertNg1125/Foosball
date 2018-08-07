@@ -1,0 +1,14 @@
+<div class="player-header">
+  <h3>
+    <span>{{ player?.displayName }}</span>
+  </h3>
+
+  <ul class="list-unstyled metadata">
+    <li>
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <a routerLink="/group/{{ groupId }}">
+        {{ group?.name }}
+      </a>
+    </li>
+  </ul>
+</div>

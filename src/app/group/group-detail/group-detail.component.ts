@@ -14,6 +14,7 @@ import { UserService } from '../../shared/user.service';
 import { Player } from '../../shared/player.model';
 import { PlayerService } from '../../shared/player.service';
 
+
 @Component({
   selector: 'app-group-detail',
   templateUrl: './group-detail.component.html',
@@ -24,7 +25,6 @@ export class GroupDetailComponent implements OnInit {
   group: Group;
   owner: User;
   players: Player[] = new Array();
-  isGroupOwner: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -83,7 +83,11 @@ export class GroupDetailComponent implements OnInit {
    */
   loadPlayer(playerId) {
     this.playerService.loadPlayer(playerId)
-      .subscribe(player => this.players.push(player));
+      .subscribe(snapshot => {
+        this.players.push(
+          {key: snapshot.key, ...snapshot.payload.val()} as Player
+        );
+      });
   }
 
 }

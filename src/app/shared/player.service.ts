@@ -42,8 +42,8 @@ export class PlayerService {
    * @param playerId
    * @return Observable<Player>
    */
-  loadPlayer(playerId: string): Observable<Player> {
-    return this.firebase.object('/player/' + playerId).valueChanges() as Observable<Player>;
+  loadPlayer(playerId: string): Observable<any> {
+    return this.firebase.object('/player/' + playerId).snapshotChanges() as Observable<any>;
   }
 
 }

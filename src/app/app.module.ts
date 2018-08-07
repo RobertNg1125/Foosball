@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { GroupDetailComponent } from './group/group-detail/group-detail.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
 import { PlayerFormComponent } from './player/player-form/player-form.component';
+import { PlayerDetailComponent } from './player/player-detail/player-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PlayerFormComponent } from './player/player-form/player-form.component'
     GroupFormComponent,
     GroupDetailComponent,
     GroupListComponent,
-    PlayerFormComponent
+    PlayerFormComponent,
+    PlayerDetailComponent
   ],
   imports: [
     BrowserModule,

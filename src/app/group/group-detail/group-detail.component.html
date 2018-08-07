@@ -15,7 +15,7 @@
 <div class="group-body">
   <div class="players">
     <div class="player" *ngFor="let player of players">
-      <a routerLink="/player">
+      <a routerLink="/group/{{ groupId }}/player/{{ player.key }}">
         <img src="{{ player.photoURL }}" alt="{{ player.displayName }}" class="img-fluid">
       </a>
       <div>{{ player.displayName }}</div>
