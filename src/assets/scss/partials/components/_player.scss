@@ -1,0 +1,26 @@
+.players {
+  //@include make-row();
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.player {
+  //@include make-col(4);
+  flex: 0 0 auto;
+
+  margin-right: 1rem;
+  text-align: center;
+  a {
+    display: block;
+    text-align: center;
+    img {
+      border-radius: 50%;
+      height: 100px;
+      width: 100px;
+    }
+  }
+}

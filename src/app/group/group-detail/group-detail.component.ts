@@ -7,6 +7,11 @@ import { GroupService } from '../../shared/group.service';
 import { User } from '../../shared/user.model';
 import { UserService } from '../../shared/user.service';
 
+import { Player } from '../../shared/player.model';
+import { PlayerService } from '../../shared/player.service';
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators';
+
 @Component({
   selector: 'app-group-detail',
   templateUrl: './group-detail.component.html',
@@ -16,16 +21,19 @@ export class GroupDetailComponent implements OnInit {
   groupId: string;
   group: Group;
   owner: User;
+  players: Player[] = new Array();
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private groupService: GroupService,
-    private userService: UserService
+    private userService: UserService,
+    private playerService: PlayerService
   ) { }
 
   ngOnInit() {
     this.groupId = this.activatedRoute.snapshot.paramMap.get('groupId');
     this.loadGroup();
+    this.loadPlayers();
   }
 
   /**
@@ -47,5 +55,31 @@ export class GroupDetailComponent implements OnInit {
         );
   }
 
+  /**
+   * Load Players of group,
+   * perform nested observation
+   *
+   * TODO: find a way to sort players by name
+   */
+  loadPlayers() {
+    // Load players of group
+    this.playerService.loadPlayersByGroup(this.groupId)
+      .subscribe(group_players => {
+        group_players.map(playerId => {
+          // load player
+          this.loadPlayer(playerId);
+        });
+      });
+  }
+
+  /**
+   * Load player object
+   *
+   * @param playerId
+   */
+  loadPlayer(playerId) {
+    this.playerService.loadPlayer(playerId)
+      .subscribe(player => this.players.push(player));
+  }
 
 }

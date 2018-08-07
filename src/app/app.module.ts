@@ -15,6 +15,7 @@ import { GroupFormComponent } from './group/group-form/group-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GroupDetailComponent } from './group/group-detail/group-detail.component';
 import { GroupListComponent } from './group/group-list/group-list.component';
+import { PlayerFormComponent } from './player/player-form/player-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GroupListComponent } from './group/group-list/group-list.component';
     NavigationComponent,
     GroupFormComponent,
     GroupDetailComponent,
-    GroupListComponent
+    GroupListComponent,
+    PlayerFormComponent
   ],
   imports: [
     BrowserModule,

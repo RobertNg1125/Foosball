@@ -10,3 +10,16 @@
     <li><i class="fa fa-user-o" aria-hidden="true"></i> {{ owner?.displayName }}</li>
   </ul>
 </div>
+
+<div class="group-body">
+
+  <div class="players">
+    <div class="player" *ngFor="let player of players">
+      <a routerLink="/player">
+        <img src="{{ player.photoURL }}" alt="{{ player.displayName }}" class="img-fluid">
+      </a>
+      <div>{{ player.displayName }}</div>
+    </div>
+  </div>
+
+</div>

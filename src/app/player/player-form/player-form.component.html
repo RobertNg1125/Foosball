@@ -1,0 +1,28 @@
+<p>Add player to group <b>{{ group?.name }}</b></p>
+
+<form (ngSubmit)="newPlayer()" #playerForm="ngForm">
+  <div class="form-group">
+    <label for="displayName">Name</label>
+    <input type="text" class="form-control"
+           id="displayName"
+           [(ngModel)]="player.displayName"
+           name="displayName"
+           required />
+  </div>
+
+  <div class="form-group">
+    <label for="photoURL">Photo URL</label>
+    <input type="text" class="form-control"
+           id="photoURL"
+           [(ngModel)]="player.photoURL"
+           name="photoURL"
+           required>
+  </div>
+
+  <div class="form-actions">
+    <button type="button" name="button"
+            (click)="newPlayer();"
+            [disabled]="!playerForm.form.valid"
+            class="btn btn-primary">Save</button>
+  </div>
+</form>
