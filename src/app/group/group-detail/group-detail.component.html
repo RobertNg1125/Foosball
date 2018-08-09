@@ -12,14 +12,16 @@
   </ul>
 </div>
 
-<div class="group-body">
-  <div class="players">
-    <div class="player" *ngFor="let player of players">
-      <a routerLink="/group/{{ groupId }}/player/{{ player.key }}">
-        <img src="{{ player.photoURL }}" alt="{{ player.displayName }}" class="img-fluid">
-      </a>
-      <div>{{ player.displayName }}</div>
-    </div>
+<div class="players">
+  <div class="player" *ngFor="let player of players">
+    <a routerLink="/group/{{ groupId }}/player/{{ player.key }}">
+      <img src="{{ player.photoURL }}" alt="{{ player.displayName }}" class="img-fluid">
+    </a>
+    <div>{{ player.displayName }}</div>
   </div>
-
 </div>
+
+<div class="btn-wrapper">
+  <a routerLink="/" class="btn btn-primary">Add new match</a>
+</div>
+

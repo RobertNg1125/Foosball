@@ -1,13 +1,9 @@
-@mixin button-circle() {
-  border: 1px solid $brand-primary;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-content: center;
+@mixin btn-primary() {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 19px;
 }
 
-.btn-circle {
-  @include button-circle();
+.btn-primary {
+  @include btn-primary();
 }
-
