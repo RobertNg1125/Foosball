@@ -71,7 +71,7 @@ export class GroupDetailComponent implements OnInit {
       .subscribe(group_players => {
         group_players.map(playerId => {
           // load player
-          this.loadPlayer(playerId);
+          this.loadPlayer(playerId.payload.val());
         });
       });
   }

@@ -1,0 +1,199 @@
+/* Table  */
+$table-color: #c1c1c1;
+
+$table-width: calc(100vw - 2rem);
+$table-height: calc(#{$table-width}/2.1);
+
+$penalty-area-width: calc(#{$table-height}/4);
+$penalty-area-height: calc(#{$table-height}/2);
+
+$rod-length: calc(#{$table-height} + 40px);
+$rod-width: 5px;
+
+$handle-length: calc(#{$table-height}/5);
+$handle-width: 10px;
+
+@mixin handle-position($i) {
+  left: calc(#{$i} * (100vw - 30px)/9);
+}
+
+.table-wrapper {
+  margin-bottom: 2rem;
+}
+
+.game-table {
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.game-table--surface {
+  background: white;
+  border: 5px solid $table-color;
+  height: $table-height;
+  width: $table-width;
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: $penalty-area-width;
+    height: $penalty-area-height;
+    position: absolute;
+    top: 50%;
+    transform: translate(-5px, -50%);
+    border: 3px solid $table-color;
+  }
+  &:after {
+    right: 0;
+    transform: translate(5px, -50%);
+  }
+
+  .center {
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    display: block;
+    transform: translateX(-50%);
+    background: $table-color;
+  }
+}
+
+
+.game-table--rod {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 100%;
+  height: 100%;
+}
+
+.rod {
+  height: $rod-length;
+  width: $rod-width;
+  background: $table-color;
+  position: absolute;
+  transform: translateX(-50%);
+
+  &:after {
+    content: '';
+    height: $handle-length;
+    width: $handle-width;
+    display: block;
+    background: $table-color;
+    position: absolute;
+    transform: translateX(-25%);
+
+  }
+}
+
+.game-table--rod-top {
+  top: -15px;
+  .rod:after {
+    top: -25px;
+  }
+}
+
+.game-table--rod-bottom {
+  top: -20px;
+  .rod:after {
+    bottom: -25px;
+  }
+}
+
+.rod-bottom-1 {
+  @include handle-position(1);
+}
+.rod-bottom-2 {
+  @include handle-position(2);
+}
+.rod-bottom-3 {
+  @include handle-position(4);
+}
+.rod-bottom-4 {
+  @include handle-position(6);
+}
+
+.rod-top-1 {
+  @include handle-position(3);
+}
+.rod-top-2 {
+  @include handle-position(5);
+}
+.rod-top-3 {
+  @include handle-position(7);
+}
+.rod-top-4 {
+  @include handle-position(8);
+}
+
+
+.game-score {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  input {
+    border: none;
+    width: 60px;
+    text-align: center;
+    font-size: 4rem;
+    font-family: $headings-font-family;
+  }
+}
+
+/* Player */
+$team-member-size: 50px;
+.team {
+  position: relative;
+  height: $team-member-size;
+}
+
+.team-player {
+  height: $team-member-size;
+  width: $team-member-size;
+  display: block;
+  font-size: 0;
+  background-color: #FFEDA4;
+  border-radius: 50%;
+
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-50%);
+
+  &:after {
+    content: '';
+    display: block;
+    height: calc(#{$team-member-size} + 16px);
+    width: calc(#{$team-member-size} + 16px);
+    background-color: #FFF3CC;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    transform: translate(-8px, -8px);
+    border-radius: 50%;
+  }
+}
+.team-player img{
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-a--striker {
+  left: calc(4 * (100vw - 30px)/9);
+}
+.team-a--defender {
+  left: calc(7.5 * (100vw - 30px)/9);
+}
+
+.team-b--striker {
+  left: calc(5 * (100vw - 30px)/9);
+}
+.team-b--defender {
+  left: calc(1.5 * (100vw - 30px)/9);
+}

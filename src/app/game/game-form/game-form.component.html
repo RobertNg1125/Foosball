@@ -1,0 +1,68 @@
+<app-launcher-player id="launcher-players"
+                     (selectPlayerEvent)="onLauncherSelected($event)"></app-launcher-player>
+
+<ng-template #templateEmptyUser>
+  <div class="">
+    <img src="assets/images/default-user.jpg" />
+  </div>
+</ng-template>
+
+<form>
+  <div class="table-wrapper clearfix">
+    <div class="team">
+      <a class="team-player team-a--striker team-a" (click)="showSelectPlayer('AStriker')">
+        <div *ngIf="teamAStriker?.photoURL; else templateEmptyUser">
+          <img src="{{ teamAStriker.photoURL }}">
+        </div>
+      </a>
+      <a class="team-player team-a--defender team-a" (click)="showSelectPlayer('ADefender')">
+        <div *ngIf="teamADefender?.photoURL; else templateEmptyUser">
+          <img src="{{ teamADefender.photoURL }}">
+        </div>
+      </a>
+    </div>
+
+    <div class="game-table">
+      <div class="game-table--surface">
+        <div class="center"></div>
+        <div class="game-score">
+          <input type="number" name="scoreA" [(ngModel)]="scoreA" maxlength="2" value="0">
+          <input type="number" name="scoreB" [(ngModel)]="scoreB" maxlength="2" value="0">
+        </div>
+
+      </div>
+      <div class="game-table--rod game-table--rod-bottom">
+        <div class="rod rod-bottom-1"></div>
+        <div class="rod rod-bottom-2"></div>
+        <div class="rod rod-bottom-3"></div>
+        <div class="rod rod-bottom-4"></div>
+      </div>
+
+      <div class="game-table--rod game-table--rod-top">
+        <div class="rod rod-top-1"></div>
+        <div class="rod rod-top-2"></div>
+        <div class="rod rod-top-3"></div>
+        <div class="rod rod-top-4"></div>
+      </div>
+    </div>
+
+    <div class="team">
+      <a class="team-player team-b--striker team-b" (click)="showSelectPlayer('BStriker')">
+        <div *ngIf="teamBStriker?.photoURL; else templateEmptyUser">
+          <img src="{{ teamBStriker.photoURL }}">
+        </div>
+      </a>
+      <a class="team-player team-b--defender team-b" (click)="showSelectPlayer('BDefender')">
+        <div *ngIf="teamBDefender?.photoURL; else templateEmptyUser">
+          <img src="{{ teamBDefender.photoURL }}">
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="form-group" style="text-align: center">
+    <button
+      class="btn btn-primary" (click)="saveGame()">Save game</button>
+  </div>
+</form>

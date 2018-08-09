@@ -2,3 +2,33 @@ body {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
+
+.btn-add-player {
+  height: calc(100vw / 4);
+  width: calc(100vw / 4);
+  display: block;
+  padding: 5px;
+  span {
+    height: 100%;
+    width: 100%;
+    background-color: #cecece;
+    border-radius: 50%;
+    position: relative;
+    display: block;
+    &:before,
+    &:after {
+      content: '';
+      height: 1px;
+      width: 30px;
+      display: block;
+      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}

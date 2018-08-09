@@ -1,0 +1,9 @@
+<div class="launcher clearfix">
+  <div *ngFor="let player of players" class="player--image">
+    <a (click)="onSelectedPlayer(player)">
+      <img src="{{ player.photoURL }}"
+           class="img-fluid"
+           alt="{{ player.displayName}}">
+    </a>
+  </div>
+</div>

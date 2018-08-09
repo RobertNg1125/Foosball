@@ -29,11 +29,10 @@ export class PlayerService {
    * Load all players in a group
    *
    * @param groupId
-   * @return Observable<Player[]>
    */
-  loadPlayersByGroup(groupId: string): Observable<Player[]> {
+  loadPlayersByGroup(groupId: string): Observable<any> {
     return this.firebase.list('/group_players/' + groupId)
-      .valueChanges() as Observable<Player[]>;
+      .snapshotChanges() as Observable<any>;
   }
 
   /**
